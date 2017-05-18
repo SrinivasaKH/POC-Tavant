@@ -1,0 +1,52 @@
+[
+    {
+        "EmployeeID": "O001",
+        "name": "Sachin",
+        "designation": "Software Engg",
+        "skills": "dotnet and mvc",
+        "Years": 2.5,
+        "bench": "2 months",
+        "startDateOfBench": "12-05-2016",
+        "Training": "Angular 2"
+    },
+    {
+        "EmployeeID": "O002",
+        "name": "Nikil",
+        "designation": "Software Engg",
+        "skills": "dotnet and mvc, sql",
+        "Years": 2.5,
+        "bench": "2 months",
+        "startDateOfBench": "12-01-2016",
+        "Training": "Angular 2"
+    },
+    {
+        "EmployeeID": "O003",
+        "name": "Ganesh",
+        "designation": "Software Engg",
+        "skills": "Big data",
+        "Years": 2.5,
+        "bench": "1 month",
+        "startDateOfBench": "12-19-2016",
+        "Training": "Angular 2"
+    },
+    {
+        "EmployeeID": "O004",
+        "name": "Vinay",
+        "designation": "Software Engg",
+        "skills": "Big data",
+        "Years": 3,
+        "bench": "1 month",
+        "startDateOfBench": "09-19-2016",
+        "Training": "Angular 2"
+    },
+    {
+        "EmployeeID": "O005",
+        "name": "Kiran Mohanty",
+        "designation": "Software Engg",
+        "skills": "dotnet,HTML, sql",
+        "Years": 2.5,
+        "bench": "1 month",
+        "startDateOfBench": "12-01-2016",
+        "Training": "Angular 2"
+    }
+]

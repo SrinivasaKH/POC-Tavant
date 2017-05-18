@@ -1,0 +1,33 @@
+<div>
+	<h1>New Login Registration</h1>
+	<hr>
+	<div class="col-md-4">
+		<form [formGroup]="loginRegForm" (ngSubmit)="submit(loginRegForm.value)" autocomplete="off" novalidate>
+			<div class="form-group" [ngClass]="{'error':!validateuserName() }">
+				<label for="userName">User Name:</label>
+				<em *ngIf="!validateuserName() && loginRegForm.controls.userName.errors.required">UserName Required</em>
+				<em *ngIf="!validateuserName() && loginRegForm.controls.userName.errors.pattern">Must start with a letter</em>
+				<input formControlName="userName" id="userName" type="text" class="form-control" placeholder="First Name..." />
+			</div>
+			<div class="form-group" [ngClass]="{'error':!validatepassWord() }">
+				<label for="passWord">Password:</label>
+				<em *ngIf="!validatepassWord() && loginRegForm.controls.passWord.errors.required">Password Required</em>
+				<input formControlName="passWord" id="passWord" type="password" class="form-control" required validateEqual="confirmPassword"
+					reverse="true" placeholder="Password..." />
+			</div>
+
+			<div class="form-group" [ngClass]="{'error':!validateconfirmPassword() }">
+				<label for="confirmPassword">Confirm Password:</label>
+				<em *ngIf="!validateconfirmPassword() && loginRegForm.controls.confirmPassword.errors.required">Confirm Password Required</em>
+        <em [hidden]="loginRegForm.controls.confirmPassword.valid || (loginRegForm.controls.confirmPassword.pristine && !loginRegForm.submitted)" class="text-danger">
+        Password mismatch
+      </em>
+				<input formControlName="confirmPassword" id="passWord" type="password" class="form-control" required validateEqual="passWord"
+					placeholder="Confirm Password..." />
+			</div>
+
+			<button type="submit" [disabled]="loginRegForm.invalid" class="btn btn-primary">Submit</button>
+			<button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<div class='panel panel-primary' *ngIf='employee'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+     </div> 
+<div class='panel-body'>
+    <div class="row">
+    <div class='col-md-6'>
+    <div class="row">
+		<div class='col-md-4'>Employee ID :</div>
+		<div class='col-md-6'>{{employee.EmployeeID}}</div>
+	</div>
+ <div class="row">
+		<div class='col-md-4'>Name :</div>
+		<div class='col-md-6'>{{employee.name}}</div>
+	</div>
+<div class="row">
+		<div class='col-md-4'>Designation :</div>
+		<div class='col-md-6'>{{employee.designation}}</div>
+	</div>
+
+<div class="row">
+		<div class='col-md-4'>Skills :</div>
+		<div class='col-md-6'>{{employee.skills}}</div>
+	</div>
+
+    <div class="row">
+		<div class='col-md-4'>Years Of Experience :</div>
+		<div class='col-md-6'>{{employee.Years}}</div>
+	</div>
+
+    <div class="row">
+		<div class='col-md-4'>Date of Join :</div>
+		<div class='col-md-6'>{{employee.startDateOfBench}}
+        
+		</div>
+	</div>
+
+    <div class="row">
+		<div class='col-md-4'>Training :</div>
+		<div class='col-md-6'>{{employee.Training}}
+        
+		</div>
+	</div>
+
+  <div class="row">
+		<div class='col-md-4'>Total No of Days :</div>
+		<div class='col-md-6'>{{datediff(today,employee.startDateOfBench)}}
+        
+		</div>
+	</div>
+
+    </div>
+
+    <!--<div class='col-md-6'>
+        <div class="row">
+            <div class='col-md-6'><img 
+                        [src]='product.imageUrl'
+                        [style.width.px]=imageWidth
+                        [style.margin.px]=imageMargin /></div>
+</div>
+</div>-->
+</div>
+
+</div>
+
+
+     <div class='panel-footer'>
+     <a  class='btn btn-default' (click)='onBack()' style='width:80px'>
+         <i class='glyphicon glyphicon-chevron-left'></i>Back
+     </a>
+              </div>
+</div>

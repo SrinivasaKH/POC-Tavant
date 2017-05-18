@@ -1,0 +1,117 @@
+<div class='panel panel-primary'>
+	<div class='panel-heading'>
+		{{pageTitle}}
+	</div>
+	<div class='panel-body'></div>
+
+	
+	
+
+	<div class="row">
+		<div class='col-md-2'>Employee Search :</div>
+		<div class='col-md-4'><input type="text" [(ngModel)]='emplistFiltter'/></div>
+       	<div class='col-md-6'><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addNewRecordModal">Add new Employee</button></div>
+       
+	</div>
+	<!--<div>-->
+	
+	<div class='table-responsive'>
+		<table class='table' *ngIf='Employess && Employess.length'>
+			<thead>
+				<tr>
+					<th>Employee ID</th>
+					<th>Employee Name</th>
+					<th>Designation</th>
+					<th>Skill Set</th>
+					<th>Years Of Experience</th>
+					<th>Date Of Join</th>
+					<th>Training</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tr *ngFor='let employee of Employess | Employeefilter:emplistFiltter'>
+				<!--<td>{{employee.EmployeeID}}</td>-->
+				<td>{{employee.EmployeeID}}</td>
+				<td>{{employee.name}}</td>
+				<td>{{employee.designation}}</td>
+				<td>{{employee.skills}}</td>
+				<td>{{employee.Years}}</td>
+				<td>{{employee.startDateOfBench}}</td>
+				<td>{{employee.Training}}</td>
+
+				<td><input type="button" class="btn btn-info btn-lg" value="Delete" data-toggle="modal" width="70%" (click)="deleteEmp(employee)">
+					<input type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="Update" (click)="getEmployeeDetail(employee)"></td>
+
+			</tr>
+
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!--Model Popup for adding new records-->
+<div class="modal fade" id="addNewRecordModal" role="dialog">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add New Employee Details</h4>
+			</div>
+			<div class="modal-body">
+
+				<label for="inputsm">Employee ID :</label><input type="Text"  class="form-control input-sm" placeholder="Employee ID"
+					name="EmployeeID"  readonly [(ngModel)]='Emp.EmployeeID'>
+				<label for="inputsm">Name :</label><input type="Text" class="form-control input-sm" required placeholder="Emloyee Name" name="Ename" [(ngModel)]='Emp.name'>
+				<label for="inputsm">Designation :</label><input type="Text" class="form-control input-sm" placeholder="Designation" name="Desig" [(ngModel)]='Emp.designation'>
+				<label for="inputsm">Skill Set :</label><input type="Text" class="form-control input-sm" placeholder="Skill Set" name="Skill" [(ngModel)]='Emp.skills'>
+				<label for="inputsm">Years Of Experience :</label><input type="Text" class="form-control input-sm" placeholder="Years Of Experience"
+					name="YoE" [(ngModel)]='Emp.Years'>
+				<label for="inputsm">Date Of Join :</label><input type="date" placeholder="MM-dd-YYYY" class="form-control input-sm"
+					name="JoinDate" [(ngModel)]='Emp.startDateOfBench'>
+				<label for="inputsm">Training :</label><input type="Text" class="form-control input-sm" placeholder="Training" name="Train" [(ngModel)]='Emp.Training'>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info btn-default" data-dismiss="modal" (click)="createNewEmployee()">Save</button>
+				<button type="button" class="btn btn-info btn-default" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!--Model popup for updating new records.-->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" (click)="cancelEmp()">&times;</button>
+				<h4 class="modal-title">Update records</h4>
+			</div>
+			<div class="modal-body">
+
+				<label for="inputsm">Employee ID :</label><input type="Text" class="form-control input-sm" placeholder="Employee ID"
+					name="EmployeeID"  readonly [(ngModel)]='Emp.EmployeeID'>
+				<label for="inputsm">Name :</label><input type="Text" class="form-control input-sm" placeholder="Emloyee Name" name="Ename" [(ngModel)]='Emp.name'>
+				<label for="inputsm">Designation :</label><input type="Text" class="form-control input-sm" name="Desig"  placeholder="Designation" [(ngModel)]='Emp.designation' >
+				<label for="inputsm">Skill Set :</label><input type="Text" class="form-control input-sm" placeholder="Skill Set" name="Skill" [(ngModel)]='Emp.skills'>
+				<label for="inputsm">Years Of Experience :</label><input type="Text" class="form-control input-sm" placeholder="Years Of Experience"
+					name="YoE" [(ngModel)]='Emp.Years'>
+				<label for="inputsm">Date Of Join :</label><input type="Text" placeholder="MM-dd-YYYY" class="form-control input-sm"
+					name="JoinDate" readonly [(ngModel)]='Emp.startDateOfBench'>
+				<label for="inputsm">Training :</label><input type="Text" class="form-control input-sm" name="Train" placeholder="Training" [(ngModel)]='Emp.Training'>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info btn-default" (click)="updateEmp()" data-dismiss="modal">Update</button>
+				<button type="button" class="btn btn-info btn-default" data-dismiss="modal" (click)="cancelEmp()">Cancel</button>
+			</div>
+		</div>
+
+	</div>
+</div>
